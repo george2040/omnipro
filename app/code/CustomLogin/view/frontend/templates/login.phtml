@@ -1,0 +1,82 @@
+<div data-bind="scope: 'customer'">
+<!-- ko if: customer().firstname -->
+<div>¡Estás logueado!</div>
+<!-- /ko -->
+<!-- ko ifnot: customer().firstname -->
+<div>No estás logueado</div>
+<!-- /ko -->
+</div>
+<div id="tab_element">
+    <ul class="tabs-horiz nav nav-tabs" >
+        <li>
+            <a href="#custom_content_tab1" data-toggle="tab">
+                <span>
+                    <?php echo __("Ingreso"); ?>            
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="#tab2_content" data-toggle="tab">
+                <span>
+                    <?php echo __("Registro"); ?>
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="content_tab tab-content">
+    <div id="custom_content_tab1" class="tab-pane fade in active">
+        <div>
+            <div>Ingreso</div>
+        </div>
+        <form>
+        <label>Email</label>
+        <input name="email" type="text" required>
+        <label>Contraseña</label>
+        <input name="contraseña" type="password" required>
+        <label class="switch">
+        Suscribirse al newsletter
+        <input type="checkbox">
+        <span class="slider round"></span>
+        </label>
+        <input type="submit" value="Ingreso">
+        </form>
+    </div>
+    <div id="tab2_content" class="tab-pane fade" >
+        <div>
+            <div>Registro</div>
+        <form>
+        <label>Nombre</label>
+        <input name="name" type="text" required>
+        <label>Apellido</label>
+        <input name="lastname" type="text" required>
+        <label>Email</label>
+        <input name="email" type="text" required>
+        <label>Contraseña</label>
+        <input name="contraseña" type="password" required>
+        <input type="submit" value="Registro">
+        </form> 
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "customtabsrequire":{
+            }
+        }
+    }
+</script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customer": {
+                        "component": "Magento_Customer/js/model/customer"
+                    }
+                }
+            }
+        }
+    }
+</script>
